@@ -24,14 +24,29 @@ router.use(express.static(path.resolve(__dirname, 'client')));
 
 // API Routes
 router.get('/api/v1/getData', function(request, response) {
-    var data = [
-        {name: 'Ryan', color: 'red'},
-        {name: 'Trenton', color: 'orange'},
-        {name: 'Rachel', color: 'yellow'},
-        {name: 'Nolan', color: 'green'},
-        {name: 'Trevor', color: 'blue'},
-        {name: 'Nathan', color: 'purple'}
-    ];
+//creates array for cells
+    var data = [];
+    for(var i = 0; i < 12; i++){
+      var row = [];
+      for(var j = 0; j < 12; j++){
+          var hasTreasure = Math.random() > .15;
+          var hasOrangutan = false;
+          if(!hasTreasure){
+            hasOrangutan = Math.random() > .3;
+          }
+          var cell = {
+            hasTreasure: hasTreasure,
+            hasOrangutan: hasOrangutan,
+            row: i,
+            col: j
+          };
+        row.push(cell);
+      }
+      data.push(row);
+    }
+    
+  
+   
     response.send(data);
 });
 

@@ -5,3 +5,12 @@ body {
 .spacer {
     height: 30px;
 }
+
+.tree {
+    max-width: 40px;
+}
+
+.clickable:hover {
+    cursor: pointer;
+//    border: 1px black solid;
+}

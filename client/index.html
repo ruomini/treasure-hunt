@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>EU Starter Project</title>
+    <title>Treasure Hunt</title>
 
     <link rel="icon" href="img/favicon.ico">
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
@@ -13,24 +13,14 @@
 <div class="container" ng-controller="MyController">
 
     <div class="page-header">
-        <h1>Web Example</h1>
+        <h1>Treasure Hunt</h1>
     </div>
 
-    <div class="row">
-        <div class="col-md-3">
-            What is your favorite color?
-        </div>
-        <div class="col-md-3">
-            <form class="form-inline" ng-submit="postData()">
-                <input type="text" class="form-control" ng-model="color"
-                       placeholder="Enter a color">
-                <input type="submit" class="span1 btn btn-primary" value="Submit"
-                       ng-disabled="!color">
-            </form>
-        </div>
-        <div class="col-md-3">
-            {{ message }}
-        </div>
+    <div ng-show="done">
+        You win!
+        <button class="btn btn-primary" ng-click="getData()">
+                Play Again?
+        </button>
     </div>
 
     <div class="row">
@@ -41,10 +31,10 @@
 
     <div class="row">
         <div class="col-md-3">
-            What colors do people like?
+            Click to start game
         </div>
         <div class="col-md-3">
-            <button class="btn btn-primary" ng-click="getData()">Get colors</button>
+            <button class="btn btn-primary" ng-click="getData()">Start</button>
         </div>
     </div>
     <div class="spacer"></div>
@@ -56,6 +46,14 @@
                     <td>{{ person.color }}</td>
                 </tr>
             </table>
+        </div>
+    </div>
+    
+     <div class="row" ng-repeat="row in grid">
+        <div class="col-md-1 clickable" ng-click="clickTree(cell)" ng-repeat="cell in row">
+            <img src='img/tree10.png' ng-class="{tree: !grid[cell.row][cell.col].clicked, hidden: grid[cell.row][cell.col].clicked}">
+            <img src='img/orangutan.gif' ng-class="{tree: !grid[cell.row][cell.col].clicked, hidden: grid[cell.row][cell.col].clicked}">
+            <img src='img/Treasure.png' ng-class="{tree: !grid[cell.row][cell.col].clicked, hidden: grid[cell.row][cell.col].clicked}">
         </div>
     </div>
 </div>

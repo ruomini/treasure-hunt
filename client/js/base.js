@@ -1,6 +1,6 @@
 function MyController($scope, $http) {
     
-    $scope.people = [];
+    $scope.grid = [];
     $scope.color = '';
     $scope.message = '';
     
@@ -13,7 +13,13 @@ function MyController($scope, $http) {
     
     $scope.getData = function() {
         $http.get('/api/v1/getData').then(function(response) {
-            $scope.people = response.data;
+            $scope.grid = response.data;
         })
     };
+    
+    $scope.clickTree = function(cell) {
+        $scope.grid[cell.row][cell.col].clicked=true;
+    };
+    
+    
 }
