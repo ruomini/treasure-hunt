@@ -51,7 +51,7 @@ router.get('/api/v1/getData', function(request, response) {
     }
     
   console.log(treasures);
-   
+
     response.send(data);
 });
 
