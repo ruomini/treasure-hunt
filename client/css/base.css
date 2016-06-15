@@ -6,11 +6,39 @@ body {
     height: 30px;
 }
 
+/*.tree {*/
+/*    max-width: 40px;*/
+/*}*/
+
 .tree {
-    max-width: 40px;
+    background-image: url('/img/tree10.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 40px;
+}
+
+.orangutan {
+    background-image: url('/img/orangutan.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 40px;
+}
+
+.treasure {
+    background-image: url('/img/Treasure.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 40px;
+}
+
+.blank {
+    background-image: url('/img/white.jpeg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 40px;
 }
 
 .clickable:hover {
     cursor: pointer;
-//    border: 1px black solid;
+    /*border: 1px black solid;*/
 }

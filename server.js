@@ -26,14 +26,19 @@ router.use(express.static(path.resolve(__dirname, 'client')));
 router.get('/api/v1/getData', function(request, response) {
 //creates array for cells
     var data = [];
+    var treasures = 0;
     for(var i = 0; i < 12; i++){
       var row = [];
       for(var j = 0; j < 12; j++){
-          var hasTreasure = Math.random() > .15;
+          var hasTreasure = Math.random() < .2;
+          if(hasTreasure){
+              treasures++
+          }
           var hasOrangutan = false;
           if(!hasTreasure){
-            hasOrangutan = Math.random() > .3;
-          }
+            hasOrangutan = Math.random() < .1;
+          } 
+          
           var cell = {
             hasTreasure: hasTreasure,
             hasOrangutan: hasOrangutan,
@@ -45,7 +50,7 @@ router.get('/api/v1/getData', function(request, response) {
       data.push(row);
     }
     
-  
+  console.log(treasures);
    
     response.send(data);
 });

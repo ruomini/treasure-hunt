@@ -31,29 +31,18 @@
 
     <div class="row">
         <div class="col-md-3">
-            Click to start game
+            Click to start deforestation
         </div>
         <div class="col-md-3">
             <button class="btn btn-primary" ng-click="getData()">Start</button>
         </div>
     </div>
     <div class="spacer"></div>
-    <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <table class="table">
-                <tr ng-repeat="person in people">
-                    <td>{{ person.name }}</td>
-                    <td>{{ person.color }}</td>
-                </tr>
-            </table>
-        </div>
-    </div>
+
     
      <div class="row" ng-repeat="row in grid">
-        <div class="col-md-1 clickable" ng-click="clickTree(cell)" ng-repeat="cell in row">
-            <img src='img/tree10.png' ng-class="{tree: !grid[cell.row][cell.col].clicked, hidden: grid[cell.row][cell.col].clicked}">
-            <img src='img/orangutan.gif' ng-class="{tree: !grid[cell.row][cell.col].clicked, hidden: grid[cell.row][cell.col].clicked}">
-            <img src='img/Treasure.png' ng-class="{tree: !grid[cell.row][cell.col].clicked, hidden: grid[cell.row][cell.col].clicked}">
+        <div class="col-sm-1 col-md-1 clickable" ng-click="clickTree(cell)" ng-repeat="cell in row">
+            <div ng-class="imageDisplay(cell)"></div>
         </div>
     </div>
 </div>
