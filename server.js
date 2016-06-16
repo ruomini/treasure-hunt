@@ -24,45 +24,34 @@ router.use(express.static(path.resolve(__dirname, 'client')));
 
 // API Routes
 router.get('/api/v1/getData', function(request, response) {
-//creates array for cells
+    //creates array for cells
     var data = [];
     var treasures = 0;
-    for(var i = 0; i < 12; i++){
-      var row = [];
-      for(var j = 0; j < 12; j++){
-          var hasTreasure = Math.random() < .2;
-          if(hasTreasure){
-              treasures++
-          }
-          var hasOrangutan = false;
-          if(!hasTreasure){
-            hasOrangutan = Math.random() < .1;
-          } 
-          
-          var cell = {
-            hasTreasure: hasTreasure,
-            hasOrangutan: hasOrangutan,
-            row: i,
-            col: j
-          };
-        row.push(cell);
-      }
-      data.push(row);
-    }
-    
-  console.log(treasures);
+    for (var i = 0; i < 12; i++) {
+        var row = [];
+        for (var j = 0; j < 12; j++) {
+            var hasTreasure = Math.random() < .2;
+            if (hasTreasure) {
+                treasures++
+            }
+            var hasOrangutan = false;
+            if (!hasTreasure) {
+                hasOrangutan = Math.random() < .1;
+            }
 
-    response.send(data);
-});
-
-router.post('/api/v1/postData', function(request, response) {
-    var color = request.body.color;
-    if (color) {
-        color = color.charAt(0).toUpperCase() + color.substring(1) + ' ';
+            var cell = {
+                hasTreasure: hasTreasure,
+                hasOrangutan: hasOrangutan,
+                row: i,
+                col: j
+            };
+            row.push(cell);
+        }
+        data.push(row);
     }
-    var data = {
-        message: color + 'Monday??'
-    };
+
+    console.log(treasures);
+
     response.send(data);
 });
 

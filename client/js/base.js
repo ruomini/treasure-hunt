@@ -2,21 +2,23 @@
 
 // Declare app level module which depends on views, and components
 angular.module('app', [
-        'ngRoute'
-    ])
+    'ngRoute'
+])
 
-    .config(['$routeProvider', function($routeProvider) {
-        console.log('test');
+.config(['$routeProvider', function($routeProvider) {
+    console.log('test');
 
-        $routeProvider.when('/game', {
+    $routeProvider.when('/game', {
             templateUrl: 'templates/game.html',
             controller: 'MyController'
         })
-        .otherwise({redirectTo: '/game'})
+        .otherwise({
+            redirectTo: '/game'
+        })
 
-    }])
+}])
 
-    .controller('MyController', function($scope, $http) {
+.controller('MyController', function($scope, $http) {
 
     $scope.grid = [];
     $scope.color = '';
@@ -40,14 +42,14 @@ angular.module('app', [
         })
     };
 
-// initializes counts
-        $scope.treasures = 0;
-        $scope.totalTreasures = 0;
-        $scope.orangutans = 0;
-        $scope.highScore = 100;
+    // initializes counts
+    $scope.treasures = 0;
+    $scope.totalTreasures = 0;
+    $scope.orangutans = 0;
+    $scope.highScore = 100;
 
     $scope.clickTree = function(cell) {
-// uncovers value underneath when clicked
+        // uncovers value underneath when clicked
         if ($scope.done == false && !$scope.grid[cell.row][cell.col].clicked) {
             $scope.grid[cell.row][cell.col].clicked = true;
             if (cell.hasTreasure) {
@@ -57,7 +59,7 @@ angular.module('app', [
             if (cell.hasOrangutan) {
                 $scope.orangutans++;
             }
-//displays end game stats
+            //displays end game stats
             if ($scope.treasures == 10) {
                 $scope.done = true;
                 alert("you found ten treasures!");
@@ -67,7 +69,7 @@ angular.module('app', [
                 alert("orangutans destroyed: " + $scope.orangutans);
                 console.log("orangutans destroyed: " + $scope.orangutans);
                 var newScore = $scope.orangutans;
-                if(newScore < $scope.highScore){
+                if (newScore < $scope.highScore) {
                     $scope.highScore = newScore;
                 }
                 alert("high score: " + $scope.highScore);
@@ -79,7 +81,7 @@ angular.module('app', [
         }
 
     };
-//displays tree image
+    //displays tree image
     $scope.imageDisplay = function(cell) {
         var className = 'tree';
         if ($scope.grid[cell.row][cell.col].clicked) {

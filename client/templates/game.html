@@ -1,41 +1,40 @@
 <div class="container">
-<div class="page-header">
-    <h1>Treasure Hunt</h1>
-</div>
+    <div class="page-header">
+        <h1>Treasure Hunt</h1>
+    </div>
 
-<div ng-show="done">
-    You win!
-    <button class="btn btn-primary" ng-click="getData()">
+    <div ng-show="done">
+        You win!
+        <button class="btn btn-primary" ng-click="getData()">
             Play Again?
     </button>
-</div>
+    </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+        </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-3">
-        Click to start deforestation
+    <div class="row">
+        <div class="col-md-3">
+            Click to start deforestation
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary" ng-click="getData()">Start</button>
+        </div>
+        <div class="col-md-3">
+            treasures found: {{treasures}}/10
+        </div>
+        <div class="col-md-3">
+            high score: {{highScore}}
+        </div>
     </div>
-    <div class="col-md-3">
-        <button class="btn btn-primary" ng-click="getData()">Start</button>
-    </div>
-    <div class="col-md-3">
-        treasures found:  {{treasures}}/10
-    </div>
-    <div class="col-md-3">
-        high score: {{highScore}}
-    </div>
-</div>
-<div class="spacer"></div>
+    <div class="spacer"></div>
 
-
- <div class="row" ng-repeat="row in grid">
-    <div class="col-xs-1 col-sm-1 col-lg-1 clickable" ng-click="clickTree(cell)" ng-repeat="cell in row">
-        <div ng-class="imageDisplay(cell)"></div>
+    <div class="row" ng-repeat="row in grid">
+        <div class="col-xs-1 col-sm-1 col-lg-1 my-cell clickable" ng-click="clickTree(cell)" ng-repeat="cell in row">
+            <div ng-class="imageDisplay(cell)"></div>
+        </div>
     </div>
-</div>
 </div>

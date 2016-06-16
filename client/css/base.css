@@ -13,6 +13,10 @@ h1 {
     height: 30px;
 }
 
+.my-cell {
+    padding: 0px;
+}
+
 .tree {
     background-image: url('/img/tree10.png');
     background-size: contain;
@@ -34,14 +38,6 @@ h1 {
     min-height: 40px;
 }
 
-.blank {
-    background-image: url('/img/white.jpeg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    min-height: 40px;
-}
-
 .clickable:hover {
     cursor: pointer;
-    /*border: 1px black solid;*/
 }
