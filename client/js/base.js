@@ -40,39 +40,39 @@ angular.module('app', [
         })
     };
 
-    var treasures = 0;
-    var totalTreasures = 0;
-    var orangutans = 0;
-    var highScore = 100;
+        $scope.treasures = 0;
+        $scope.totalTreasures = 0;
+        $scope.orangutans = 0;
+        $scope.highScore = 100;
 
     $scope.clickTree = function(cell) {
         if ($scope.done == false && !$scope.grid[cell.row][cell.col].clicked) {
             $scope.grid[cell.row][cell.col].clicked = true;
             if (cell.hasTreasure) {
-                treasures++;
-                console.log("Treasures found: " + treasures + "/10");
+                $scope.treasures++;
+                console.log("Treasures found: " + $scope.treasures + "/10");
             }
             if (cell.hasOrangutan) {
-                orangutans++;
+                $scope.orangutans++;
             }
 
-            if (treasures == 10) {
+            if ($scope.treasures == 10) {
                 $scope.done = true;
                 alert("you found ten treasures!");
                 alert("game over");
-                treasures = 0;
-                totalTreasures += 10;
-                alert("orangutans destroyed: " + orangutans);
-                console.log("orangutans destroyed: " + orangutans);
-                var newScore = orangutans;
-                if(newScore < highScore){
-                    highScore = newScore;
+                $scope.treasures = 0;
+                $scope.totalTreasures += 10;
+                alert("orangutans destroyed: " + $scope.orangutans);
+                console.log("orangutans destroyed: " + $scope.orangutans);
+                var newScore = $scope.orangutans;
+                if(newScore < $scope.highScore){
+                    $scope.highScore = newScore;
                 }
-                alert("high score: " + highScore);
-                console.log("high score: " + highScore);
-                orangutans = 0;
-                alert("you have collected " + totalTreasures + " treasures total");
-                console.log("you have collected " + totalTreasures + " treasures total");
+                alert("high score: " + $scope.highScore);
+                console.log("high score: " + $scope.highScore);
+                $scope.orangutans = 0;
+                alert("you have collected " + $scope.totalTreasures + " treasures in total");
+                console.log("you have collected " + $scope.totalTreasures + " treasures in total");
             }
         }
 
