@@ -41,6 +41,7 @@ angular.module('app', [
     };
 
     var treasures = 0;
+    var totalTreasures = 0;
     var orangutans = 0;
     var highScore = 100;
 
@@ -57,8 +58,10 @@ angular.module('app', [
 
             if (treasures == 10) {
                 $scope.done = true;
+                alert("you found ten treasures!");
                 alert("game over");
                 treasures = 0;
+                totalTreasures += 10;
                 alert("orangutans destroyed: " + orangutans);
                 console.log("orangutans destroyed: " + orangutans);
                 var newScore = orangutans;
@@ -68,6 +71,8 @@ angular.module('app', [
                 alert("high score: " + highScore);
                 console.log("high score: " + highScore);
                 orangutans = 0;
+                alert("you have collected " + totalTreasures + " treasures total");
+                console.log("you have collected " + totalTreasures + " treasures total");
             }
         }
 
